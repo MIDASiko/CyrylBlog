@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Elektronika</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyrylTech — блог об электронике</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Blog o Elektronice</h1>
+    <div class="logo">CyrylTech</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">
+      &#9776;
+    </div>
     <nav>
       <ul>
-        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
-        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК</a></li>
         <li><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
-        <li><a href="artykul2.html">Poradnik: Zakup Multimetru</a></li>
+        <li><a href="artykul2.html">Как выбрать мультиметр</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <h2>Witaj na blogu o elektronice</h2>
-    <p>Tutaj znajdziesz recenzje, porównania i porady dotyczące sprzętu elektronicznego.</p>
-    <ul class="articles">
-      <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
-      <li><a href="artykul1.html">RTV Euro AGD vs Media Expert - Gdzie lepiej kupić?</a></li>
-      <li><a href="artykul2.html">Poradnik: Jak wybrać dobry multimetr?</a></li>
-    </ul>
+    <section class="intro">
+      <h1>Добро пожаловать на блог CyrylTech</h1>
+      <p>
+        Здесь вы найдёте обзоры, советы и сравнения техники — от игровых компьютеров до измерительных приборов. Блог для тех, кто выбирает с умом.
+      </p>
+    </section>
+
+    <section class="articles">
+      <h2>Последние статьи</h2>
+      <ul>
+        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
+        <li><a href="artykul1.html">RTV Euro AGD vs Media Expert — Где лучше покупать?</a></li>
+        <li><a href="artykul2.html">Как выбрать мультиметр: практическое руководство</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 Blog o Elektronice</p>
+    <p>&copy; 2025 CyrylTech. Все права защищены.</p>
   </footer>
 </body>
 </html>
