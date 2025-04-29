@@ -5,8 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CyrylTech — блог об электронике</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .clicker-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .clicker-logo {
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .clicker-logo:hover {
+      transform: scale(1.05);
+    }
+    .click-count {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #f5c518;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <div class="logo">CyrylTech</div>
     <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">
@@ -14,30 +34,33 @@
     </div>
     <nav>
       <ul>
-        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
         <li><a href="index.html">Главная</a></li>
         <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК</a></li>
         <li><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
         <li><a href="artykul2.html">Как выбрать мультиметр</a></li>
+        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <section class="clicker-container">
+      <img src="logo.png" alt="CyrylTech Logo" class="clicker-logo" onclick="incrementClick()" />
+      <div class="click-count">Кликов: <span id="click-count">0</span></div>
+    </section>
+
     <section class="intro">
       <h1>Добро пожаловать на блог CyrylTech</h1>
-      <p>
-        Здесь вы найдёте обзоры, советы и сравнения техники — от игровых компьютеров до измерительных приборов. Блог для тех, кто выбирает с умом.
-      </p>
+      <p>Здесь вы найдёте обзоры, советы и сравнения техники — от игровых компьютеров до измерительных приборов. Блог для тех, кто выбирает с умом.</p>
     </section>
 
     <section class="articles">
       <h2>Последние статьи</h2>
       <ul>
-        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
         <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
         <li><a href="artykul1.html">RTV Euro AGD vs Media Expert — Где лучше покупать?</a></li>
         <li><a href="artykul2.html">Как выбрать мультиметр: практическое руководство</a></li>
+        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
       </ul>
     </section>
   </main>
@@ -45,5 +68,14 @@
   <footer>
     <p>&copy; 2025 CyrylTech. Все права защищены.</p>
   </footer>
+
+  <script>
+    let count = 0;
+    function incrementClick() {
+      count++;
+      document.getElementById('click-count').textContent = count;
+    }
+  </script>
+
 </body>
 </html>
