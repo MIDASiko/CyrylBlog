@@ -6,10 +6,46 @@
   <title>CyrylTech — блог об электронике</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #1a1a1a, #000);
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f5c518;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f5c518;
+      font-weight: bold;
+    }
+
     .lang-toggle {
       position: absolute;
+      left: 20px;
       top: 20px;
-      right: 20px;
       background-color: #f5c518;
       color: #000;
       border: none;
@@ -17,6 +53,81 @@
       cursor: pointer;
       border-radius: 4px;
       font-weight: bold;
+      z-index: 10;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      color: #f5c518;
+    }
+
+    .clicker-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .clicker-logo {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .clicker-logo.animate {
+      animation: clickEffect 0.4s ease;
+    }
+
+    @keyframes clickEffect {
+      0%   { transform: scale(1) rotate(0deg); }
+      50%  { transform: scale(1.2) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .click-count {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #f5c518;
+    }
+
+    .articles ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .articles li {
+      margin: 0.5rem 0;
+      background: #222;
+      padding: 0.5rem 1rem;
+      border-left: 4px solid #f5c518;
+    }
+
+    .articles a {
+      color: #f5c518;
+      text-decoration: none;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f5c518;
+      color: #000;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 8px #f5c51888;
     }
   </style>
 </head>
@@ -24,14 +135,32 @@
   <button class="lang-toggle" onclick="toggleLang()">PL</button>
 
   <header>
-    <h1 data-ru="Добро пожаловать на блог CyrylTech" data-pl="Witamy na blogu CyrylTech">Добро пожаловать на блог CyrylTech</h1>
-    <p data-ru="Здесь вы найдёте обзоры, советы и сравнения техники — от игровых компьютеров до измерительных приборов. Блог для тех, кто выбирает с умом."
-       data-pl="Znajdziesz tu recenzje, porady i porównania sprzȩtu — od komputerów gamingowych po mierniki. Blog dla tych, którzy wybierają mądrze.">
-      Здесь вы найдёте обзоры, советы и сравнения техники — от игровых компьютеров до измерительных приборов. Блог для тех, кто выбирает с умом.
-    </p>
+    <div class="logo">CyrylTech</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-ru="Главная" data-pl="Strona główna">Главная</a></li>
+        <li><a href="sravnenie_igrovyh_pk_2025.html" data-ru="Сравнение ПК" data-pl="Porównanie PC">Сравнение ПК</a></li>
+        <li><a href="artykul1.html" data-ru="RTV vs Media" data-pl="RTV vs Media">RTV vs Media</a></li>
+        <li><a href="artykul2.html" data-ru="Мультиметр" data-pl="Multimetr">Мультиметр</a></li>
+        <li><a href="kak_zarabotat_shkolniku_2025.html" data-ru="Заработок школьнику" data-pl="Zarobek dla ucznia">Заработок школьнику</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
+    <section class="clicker-container">
+      <img src="logo.png" alt="CyrylTech Logo" class="clicker-logo" id="logo" onclick="incrementClick()" />
+      <div class="click-count">Кликов: <span id="click-count">0</span></div>
+    </section>
+
+    <section class="intro">
+      <h1 data-ru="Добро пожаловать на блог CyrylTech" data-pl="Witamy na blogu CyrylTech">Добро пожаловать на блог CyrylTech</h1>
+      <p data-ru="Обзоры и советы по выбору техники — для тех, кто выбирает с умом."
+         data-pl="Recenzje i porady dotyczące sprzętu — dla tych, którzy wybierają mądrze.">
+         Обзоры и советы по выбору техники — для тех, кто выбирает с умом.
+      </p>
+    </section>
+
     <section class="articles">
       <h2 data-ru="Последние статьи" data-pl="Ostatnie artykuły">Последние статьи</h2>
       <ul>
@@ -47,13 +176,28 @@
     <p>&copy; 2025 CyrylTech. Все права защищены.</p>
   </footer>
 
+  <div class="badge" data-ru="Новое: переключение языка!" data-pl="Nowość: zmiana języka!">
+    Новое: переключение языка!
+  </div>
+
   <script>
-    let currentLang = 'ru';
+    let count = 0;
+    function incrementClick() {
+      count++;
+      document.getElementById('click-count').textContent = count;
+      const logo = document.getElementById('logo');
+      logo.classList.add('animate');
+      setTimeout(() => logo.classList.remove('animate'), 400);
+    }
+
     function toggleLang() {
-      currentLang = currentLang === 'ru' ? 'pl' : 'ru';
-      document.querySelector('.lang-toggle').textContent = currentLang === 'ru' ? 'PL' : 'RU';
+      const current = document.querySelector('.lang-toggle').textContent;
+      const nextLang = current === 'PL' ? 'RU' : 'PL';
+      document.querySelector('.lang-toggle').textContent = nextLang === 'PL' ? 'RU' : 'PL';
+
+      const langKey = nextLang.toLowerCase();
       document.querySelectorAll('[data-ru]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + currentLang);
+        el.textContent = el.getAttribute('data-' + langKey);
       });
     }
   </script>
