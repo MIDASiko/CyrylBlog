@@ -10,14 +10,29 @@
       text-align: center;
       margin-top: 2rem;
     }
+
     .clicker-logo {
       width: 250px;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease;
     }
-    .clicker-logo:hover {
-      transform: scale(1.05);
+
+    .clicker-logo.animate {
+      animation: clickEffect 0.4s ease;
     }
+
+    @keyframes clickEffect {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.15) rotate(10deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
     .click-count {
       font-size: 1.5rem;
       margin-top: 1rem;
@@ -45,7 +60,7 @@
 
   <main>
     <section class="clicker-container">
-      <img src="logo.png" alt="CyrylTech Logo" class="clicker-logo" onclick="incrementClick()" />
+      <img src="logo.png" alt="CyrylTech Logo" class="clicker-logo" id="logo" onclick="incrementClick()" />
       <div class="click-count">Кликов: <span id="click-count">0</span></div>
     </section>
 
@@ -74,6 +89,12 @@
     function incrementClick() {
       count++;
       document.getElementById('click-count').textContent = count;
+
+      const logo = document.getElementById('logo');
+      logo.classList.add('animate');
+      setTimeout(() => {
+        logo.classList.remove('animate');
+      }, 400);
     }
   </script>
 
