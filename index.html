@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CyrylTech — блог об электронике</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -57,19 +57,6 @@
     h1, h2 {
       color: #f5c518;
     }
-    .filter-buttons {
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .filter-buttons button {
-      margin: 0 5px;
-      background-color: #333;
-      color: #f5c518;
-      border: 1px solid #f5c518;
-      padding: 5px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
     .articles ul {
       list-style: none;
       padding: 0;
@@ -94,7 +81,6 @@
     }
     .telegram-link {
       margin-top: 2rem;
-      display: block;
       text-align: center;
     }
     .telegram-link a {
@@ -104,9 +90,17 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
     }
-  </style>
+  
+    nav a.active {
+      background-color: #f5c518;
+      color: #000;
+      padding: 3px 10px;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+    }
+</style>
+
 </head>
 <body>
   <button class="lang-toggle" onclick="toggleLang()">PL</button>
@@ -114,7 +108,7 @@
   <header>
     <div class="logo">CyrylTech</div>
     <nav>
-      <ul>
+      <ul id="filter-nav">
         <li><a onclick="filterArticles('all')">Все</a></li>
         <li><a onclick="filterArticles('news')">Новости</a></li>
         <li><a onclick="filterArticles('games')">Игры</a></li>
@@ -139,6 +133,7 @@
         <li data-category="news"><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
         <li data-category="hardware"><a href="artykul2.html">Как выбрать мультиметр</a></li>
         <li data-category="news"><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
+        <li data-category="hardware"><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК в 2025 году</a></li>
       </ul>
     </section>
 
@@ -168,6 +163,21 @@
         article.style.display = (category === 'all' || article.dataset.category === category) ? 'block' : 'none';
       });
     }
-  </script>
+  
+    const navItems = document.querySelectorAll('#filter-nav a');
+    function setActiveCategory(cat) {
+      navItems.forEach(el => el.classList.remove('active'));
+      document.querySelector(`#filter-nav a[onclick="filterArticles('${cat}')"]`)?.classList.add('active');
+    }
+
+    const originalFilter = filterArticles;
+    filterArticles = function(category) {
+      originalFilter(category);
+      setActiveCategory(category);
+    }
+
+    setActiveCategory('all');
+    </script>
+
 </body>
 </html>
