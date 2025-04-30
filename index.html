@@ -38,6 +38,13 @@
       font-weight: bold;
       cursor: pointer;
     }
+    nav a.active {
+      background-color: #f5c518;
+      color: #000;
+      padding: 3px 10px;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+    }
     .lang-toggle {
       position: absolute;
       left: 20px;
@@ -91,16 +98,7 @@
       text-decoration: none;
       font-weight: bold;
     }
-  
-    nav a.active {
-      background-color: #f5c518;
-      color: #000;
-      padding: 3px 10px;
-      border-radius: 5px;
-      transition: all 0.2s ease;
-    }
-</style>
-
+  </style>
 </head>
 <body>
   <button class="lang-toggle" onclick="toggleLang()">PL</button>
@@ -129,6 +127,7 @@
     <section class="articles">
       <h2 data-ru="Последние статьи" data-pl="Ostatnie artykuły">Последние статьи</h2>
       <ul id="article-list">
+        <li data-category="games"><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров — лучшие игры на смартфон</a></li>
         <li data-category="games"><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
         <li data-category="news"><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
         <li data-category="hardware"><a href="artykul2.html">Как выбрать мультиметр</a></li>
@@ -162,22 +161,12 @@
       articles.forEach(article => {
         article.style.display = (category === 'all' || article.dataset.category === category) ? 'block' : 'none';
       });
-    }
-  
-    const navItems = document.querySelectorAll('#filter-nav a');
-    function setActiveCategory(cat) {
-      navItems.forEach(el => el.classList.remove('active'));
-      document.querySelector(`#filter-nav a[onclick="filterArticles('${cat}')"]`)?.classList.add('active');
+
+      document.querySelectorAll('#filter-nav a').forEach(el => el.classList.remove('active'));
+      document.querySelector(`#filter-nav a[onclick="filterArticles('${category}')"]`)?.classList.add('active');
     }
 
-    const originalFilter = filterArticles;
-    filterArticles = function(category) {
-      originalFilter(category);
-      setActiveCategory(category);
-    }
-
-    setActiveCategory('all');
-    </script>
-
+    filterArticles('all');
+  </script>
 </body>
 </html>
