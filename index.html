@@ -36,6 +36,7 @@
       text-decoration: none;
       color: #f5c518;
       font-weight: bold;
+      cursor: pointer;
     }
     .lang-toggle {
       position: absolute;
@@ -55,6 +56,19 @@
     }
     h1, h2 {
       color: #f5c518;
+    }
+    .filter-buttons {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .filter-buttons button {
+      margin: 0 5px;
+      background-color: #333;
+      color: #f5c518;
+      border: 1px solid #f5c518;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 4px;
     }
     .articles ul {
       list-style: none;
@@ -101,11 +115,10 @@
     <div class="logo">CyrylTech</div>
     <nav>
       <ul>
-        <li><a href="index.html" data-ru="Главная" data-pl="Strona główna">Главная</a></li>
-        <li><a href="sravnenie_igrovyh_pk_2025.html" data-ru="Сравнение ПК" data-pl="Porównanie PC">Сравнение ПК</a></li>
-        <li><a href="artykul1.html" data-ru="RTV vs Media" data-pl="RTV vs Media">RTV vs Media</a></li>
-        <li><a href="artykul2.html" data-ru="Мультиметр" data-pl="Multimetr">Мультиметр</a></li>
-        <li><a href="kak_zarabotat_shkolniku_2025.html" data-ru="Заработок школьнику" data-pl="Zarobek dla ucznia">Заработок школьнику</a></li>
+        <li><a onclick="filterArticles('all')">Все</a></li>
+        <li><a onclick="filterArticles('news')">Новости</a></li>
+        <li><a onclick="filterArticles('games')">Игры</a></li>
+        <li><a onclick="filterArticles('hardware')">Комплектующие</a></li>
       </ul>
     </nav>
   </header>
@@ -121,11 +134,11 @@
 
     <section class="articles">
       <h2 data-ru="Последние статьи" data-pl="Ostatnie artykuły">Последние статьи</h2>
-      <ul>
-        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
-        <li><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
-        <li><a href="artykul2.html">Как выбрать мультиметр</a></li>
-        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
+      <ul id="article-list">
+        <li data-category="games"><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
+        <li data-category="news"><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
+        <li data-category="hardware"><a href="artykul2.html">Как выбрать мультиметр</a></li>
+        <li data-category="news"><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
       </ul>
     </section>
 
@@ -143,10 +156,16 @@
       const current = document.querySelector('.lang-toggle').textContent;
       const nextLang = current === 'PL' ? 'RU' : 'PL';
       document.querySelector('.lang-toggle').textContent = nextLang === 'PL' ? 'RU' : 'PL';
-
       const langKey = nextLang.toLowerCase();
       document.querySelectorAll('[data-ru]').forEach(el => {
         el.textContent = el.getAttribute('data-' + langKey);
+      });
+    }
+
+    function filterArticles(category) {
+      const articles = document.querySelectorAll('#article-list li');
+      articles.forEach(article => {
+        article.style.display = (category === 'all' || article.dataset.category === category) ? 'block' : 'none';
       });
     }
   </script>
