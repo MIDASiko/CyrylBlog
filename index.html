@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CyrylTech — блог об электронике</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo">CyrylTech</div>
-    <nav class="navbar">
-      <a href="index.html" class="active">Все</a>
-      <a href="news.html">Новости</a>
-      <a href="hardware.html">Комплектующие</a>
-      <a href="games.html">Игры</a>
+    <nav>
+      <ul>
+        <li><a href="#all" class="active">Все</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#hardware">Комплектующие</a></li>
+        <li><a href="#games">Игры</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <div class="slider">
-      <div class="slide"><a href="hardware.html"><img src="hardware.jpg" alt="Комплектующие"><span>Комплектующие</span></a></div>
-      <div class="slide"><a href="games.html"><img src="games.jpg" alt="Игры"><span>Игры</span></a></div>
-      <div class="slide"><a href="news.html"><img src="news.jpg" alt="Новости"><span>Новости</span></a></div>
-      <div class="slide"><a href="index.html"><img src="all.jpg" alt="Все"><span>Все статьи</span></a></div>
+  <section class="slider">
+    <div class="slide" onclick="location.href='#hardware'">
+      <img src="slide_parts.jpg" alt="Комплектующие" />
+      <div class="caption">Комплектующие</div>
     </div>
+    <div class="slide" onclick="location.href='#games'">
+      <img src="slide_games.jpg" alt="Игры" />
+      <div class="caption">Игры</div>
+    </div>
+    <div class="slide" onclick="location.href='#news'">
+      <img src="slide_news.jpg" alt="Новости" />
+      <div class="caption">Новости</div>
+    </div>
+    <div class="slide" onclick="location.href='#all'">
+      <img src="slide_all.jpg" alt="Все статьи" />
+      <div class="caption">Все статьи</div>
+    </div>
+  </section>
 
-    <section class="articles">
-      <h1>Все статьи</h1>
-
-      <h2>Комплектующие</h2>
+  <main>
+    <h1 id="all">Все статьи</h1>
+    <section>
+      <h2 id="hardware">Комплектующие</h2>
       <ul>
-        <li><a href="kak_sobrat_igrovoj_pk_2025.html">Как собрать игровой ПК</a></li>
+        <li><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК</a></li>
         <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК</a></li>
       </ul>
-
-      <h2>Игры</h2>
+    </section>
+    <section>
+      <h2 id="games">Игры</h2>
       <ul>
         <li><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров</a></li>
       </ul>
-
-      <h2>Новости</h2>
+    </section>
+    <section>
+      <h2 id="news">Новости</h2>
       <ul>
         <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику</a></li>
-        <li><a href="artykuł2.html">Как выбрать мультиметр</a></li>
+        <li><a href="kak_vybrat_multimetr.html">Как выбрать мультиметр</a></li>
       </ul>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 CyrylTech</p>
-  </footer>
+  <footer>&copy; 2025 CyrylTech</footer>
+  <script src="script.js"></script>
 </body>
 </html>
