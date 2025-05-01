@@ -1,66 +1,111 @@
-body {
-  background: #111;
-  color: #fff;
-  font-family: Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-header {
-  background: #000;
-  padding: 1rem;
+body {
+  background: #111;
+  color: #ffc400;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .logo {
-  color: #f5c518;
   font-size: 1.5rem;
   font-weight: bold;
 }
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffc400;
 }
-nav a {
-  color: white;
+.nav a {
+  margin: 0 1rem;
   text-decoration: none;
-  padding: 0.3rem 0.6rem;
+  color: #ffc400;
 }
-nav a.active {
-  border-bottom: 2px solid #f5c518;
+.nav a.active {
+  border-bottom: 2px solid #ffc400;
 }
 .slider {
+  position: relative;
+  overflow: hidden;
+  max-height: 300px;
+}
+.slides {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-  padding: 1rem;
+  transition: transform 0.5s ease-in-out;
 }
 .slide {
-  flex: 0 0 auto;
-  width: 300px;
-  scroll-snap-align: start;
-  text-align: center;
+  min-width: 100%;
+  position: relative;
 }
 .slide img {
   width: 100%;
-  border-radius: 10px;
-}
-.slide span {
+  height: auto;
   display: block;
-  margin-top: 0.5rem;
-  font-weight: bold;
 }
-.articles {
-  list-style: none;
-  padding: 1rem;
+.caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: #fff;
 }
-.articles li {
-  padding: 0.5rem 0;
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+.prev { left: 0; }
+.next { right: 0; }
+
+main.content {
+  padding: 2rem;
+}
+.category {
+  margin-bottom: 2rem;
 }
 footer {
   text-align: center;
   padding: 1rem;
+  background: #000;
   color: #888;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: #000;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+  }
+  .nav.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
