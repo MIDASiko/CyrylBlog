@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -19,9 +20,40 @@
     ul.articles a { color: #fff; text-decoration: none; }
     ul.articles a:hover { text-decoration: underline; }
     footer { background: #000; text-align: center; padding: 1rem; color: #777; }
+
+    /* Слайдер */
+    .slider { position: relative; max-width: 1000px; margin: 2rem auto; overflow: hidden; border-radius: 10px; }
+    .slides { display: flex; transition: transform 0.5s ease-in-out; }
+    .slide { min-width: 100%; position: relative; }
+    .slide img { width: 100%; display: block; }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 10;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 <body>
+
   <header>
     <h1>CyrylTech</h1>
     <nav>
@@ -31,19 +63,50 @@
     </nav>
   </header>
 
+  <section class="slider">
+    <div class="slides">
+      <div class="slide">
+        <a href="#all">
+          <img src="slide_all.jpg" alt="Все статьи" />
+          <div class="caption">Все статьи</div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="#news">
+          <img src="slide_news.jpg" alt="Новости" />
+          <div class="caption">Новости</div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="#hardware">
+          <img src="slide_parts.jpg" alt="Комплектующие" />
+          <div class="caption">Комплектующие</div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="#games">
+          <img src="slide_games.jpg" alt="Игры" />
+          <div class="caption">Игры</div>
+        </a>
+      </div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </section>
+
   <main>
     <section id="hardware" class="category">
       <h2>Комплектующие</h2>
       <ul class="articles">
-        <li><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК — разумный подход к выбору компонентов</a></li>
-        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
+        <li><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК</a></li>
+        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК</a></li>
       </ul>
     </section>
 
     <section id="games" class="category">
       <h2>Игры</h2>
       <ul class="articles">
-        <li><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров — лучшие игры на смартфон</a></li>
+        <li><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров</a></li>
       </ul>
     </section>
 
@@ -51,7 +114,7 @@
       <h2>Новости</h2>
       <ul class="articles">
         <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
-        <li><a href="artykul2.html">Как выбрать мультиметр: практическое руководство</a></li>
+        <li><a href="artykul2.html">Как выбрать мультиметр</a></li>
       </ul>
     </section>
   </main>
@@ -59,5 +122,21 @@
   <footer>
     &copy; 2025 CyrylTech. Все права защищены.
   </footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideElements = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(n) {
+      index = (n + slideElements.length) % slideElements.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.querySelector('.next').onclick = () => showSlide(index + 1);
+    document.querySelector('.prev').onclick = () => showSlide(index - 1);
+
+    setInterval(() => showSlide(index + 1), 5000);
+  </script>
 </body>
 </html>
