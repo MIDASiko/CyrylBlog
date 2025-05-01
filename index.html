@@ -2,47 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Все статьи — CyrylTech</title>
+  <title>CyrylTech — блог об электронике</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <header>
+    <div class="logo">CyrylTech</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link active">Все</a></li>
+        <li><a href="news.html" class="nav-link">Новости</a></li>
+        <li><a href="hardware.html" class="nav-link">Комплектующие</a></li>
+        <li><a href="games.html" class="nav-link">Игры</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <h1 class="logo">CyrylTech</h1>
-  <nav>
-    <a href="index.html" class="active">Все</a>
-    <a href="news.html">Новости</a>
-    <a href="hardware.html">Комплектующие</a>
-    <a href="games.html">Игры</a>
-  </nav>
-</header>
+  <section class="slider">
+    <div class="slide"><a href="hardware.html"><img src="img/hardware.jpg" alt="Комплектующие"><span>Комплектующие</span></a></div>
+    <div class="slide"><a href="games.html"><img src="img/games.jpg" alt="Игры"><span>Игры</span></a></div>
+    <div class="slide"><a href="news.html"><img src="img/news.jpg" alt="Новости"><span>Новости</span></a></div>
+    <div class="slide"><a href="index.html"><img src="img/all.jpg" alt="Все"><span>Все статьи</span></a></div>
+  </section>
 
-
-<section class="slider">
-  <div class="slides">
-    <a href="index.html" class="slide"><img src="slide_all.jpg" alt="Все статьи"><span>Все</span></a>
-    <a href="news.html" class="slide"><img src="slide_news.jpg" alt="Новости"><span>Новости</span></a>
-    <a href="hardware.html" class="slide"><img src="slide_parts.jpg" alt="Комплектующие"><span>Комплектующие</span></a>
-    <a href="games.html" class="slide"><img src="slide_games.jpg" alt="Игры"><span>Игры</span></a>
-  </div>
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</section>
-
-<main>
-<section class="category"><h2>Комплектующие</h2>
-<ul><li><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК</a></li>
-<li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК</a></li></ul></section>
-<section class="category"><h2>Игры</h2>
-<ul><li><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров</a></li></ul></section>
-<section class="category"><h2>Новости</h2>
-<ul><li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
-<li><a href="artykul2.html">Как выбрать мультиметр</a></li></ul></section>
-</main>
-
-<footer><p>&copy; 2025 CyrylTech</p></footer>
-<script src="script.js"></script>
-
+  <footer>© 2025 CyrylTech</footer>
 </body>
 </html>
