@@ -3,170 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyrylTech — блог об электронике</title>
-  <link rel="stylesheet" href="style.css">
+  <title>CyrylTech — блог об электронике и играх</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(to bottom, #1a1a1a, #000);
-      color: #fff;
-    }
-    header {
-      background-color: #111;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #f5c518;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.2rem;
-      padding: 0;
-      margin: 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: #f5c518;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    nav a.active {
-      background-color: #f5c518;
-      color: #000;
-      padding: 3px 10px;
-      border-radius: 5px;
-      transition: all 0.2s ease;
-    }
-    .lang-toggle {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      background-color: #f5c518;
-      color: #000;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-      z-index: 10;
-    }
-    main {
-      padding: 2rem;
-    }
-    h1, h2 {
-      color: #f5c518;
-    }
-    .articles ul {
-      list-style: none;
-      padding: 0;
-    }
-    .articles li {
-      margin: 0.5rem 0;
-      background: #222;
-      padding: 0.5rem 1rem;
-      border-left: 4px solid #f5c518;
-    }
-    .articles a {
-      color: #f5c518;
-      text-decoration: none;
-      display: block;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    .telegram-link {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .telegram-link a {
-      background: #0088cc;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    body { background: #111; color: #eee; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #f5c518; margin: 0; font-size: 1.8rem; }
+    nav a { color: #eee; margin-left: 1rem; text-decoration: none; }
+    nav a:hover { color: #f5c518; }
+    section { padding: 2rem; }
+    .category { margin-bottom: 2rem; }
+    .category h2 { border-bottom: 2px solid #f5c518; padding-bottom: 0.5rem; color: #f5c518; }
+    ul.articles { list-style: none; padding-left: 0; }
+    ul.articles li { margin-bottom: 0.5rem; }
+    ul.articles a { color: #fff; text-decoration: none; }
+    ul.articles a:hover { text-decoration: underline; }
+    footer { background: #000; text-align: center; padding: 1rem; color: #777; }
   </style>
 </head>
 <body>
-  <button class="lang-toggle" onclick="toggleLang()">PL</button>
-
   <header>
-    <div class="logo">CyrylTech</div>
+    <h1>CyrylTech</h1>
     <nav>
-      <ul id="filter-nav">
-        <li><a onclick="filterArticles('all')">Все</a></li>
-        <li><a onclick="filterArticles('news')">Новости</a></li>
-        <li><a onclick="filterArticles('games')">Игры</a></li>
-        <li><a onclick="filterArticles('hardware')">Комплектующие</a></li>
-      </ul>
+      <a href="#hardware">Комплектующие</a>
+      <a href="#games">Игры</a>
+      <a href="#news">Новости</a>
     </nav>
   </header>
 
   <main>
-    <section class="intro">
-      <h1 data-ru="Добро пожаловать на блог CyrylTech" data-pl="Witamy na blogu CyrylTech">Добро пожаловать на блог CyrylTech</h1>
-      <p data-ru="Обзоры и советы по выбору техники — для тех, кто выбирает с умом."
-         data-pl="Recenzje i porady dotyczące sprzętu — dla tych, którzy wybierają mądrze.">
-         Обзоры и советы по выбору техники — для тех, кто выбирает с умом.
-      </p>
-    </section>
-
-    <section class="articles">
-      <h2 data-ru="Последние статьи" data-pl="Ostatnie artykuły">Последние статьи</h2>
-      <ul id="article-list">
-        <li data-category="games"><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров — лучшие игры на смартфон</a></li>
-        <li data-category="games"><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
-        <li data-category="news"><a href="artykul1.html">RTV Euro AGD vs Media Expert</a></li>
-        <li data-category="hardware"><a href="artykul2.html">Как выбрать мультиметр</a></li>
-        <li data-category="news"><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
-        <li data-category="hardware"><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК в 2025 году</a></li>
+    <section id="hardware" class="category">
+      <h2>Комплектующие</h2>
+      <ul class="articles">
+        <li><a href="kak_sobrat_igrovoi_pk_2025.html">Как собрать игровой ПК — разумный подход к выбору компонентов</a></li>
+        <li><a href="sravnenie_igrovyh_pk_2025.html">Сравнение игровых ПК — что выбрать в 2025 году?</a></li>
       </ul>
     </section>
 
-    <div class="telegram-link">
-      <a href="https://t.me/CyrylTechBlog" target="_blank">Наш Telegram-канал</a>
-    </div>
+    <section id="games" class="category">
+      <h2>Игры</h2>
+      <ul class="articles">
+        <li><a href="top5_mobile_shooters_2025.html">ТОП-5 мобильных шутеров — лучшие игры на смартфон</a></li>
+      </ul>
+    </section>
+
+    <section id="news" class="category">
+      <h2>Новости</h2>
+      <ul class="articles">
+        <li><a href="kak_zarabotat_shkolniku_2025.html">Как заработать школьнику в 2025 году</a></li>
+        <li><a href="artykul2.html">Как выбрать мультиметр: практическое руководство</a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 CyrylTech. Все права защищены.</p>
+    &copy; 2025 CyrylTech. Все права защищены.
   </footer>
-
-  <script>
-    function toggleLang() {
-      const current = document.querySelector('.lang-toggle').textContent;
-      const nextLang = current === 'PL' ? 'RU' : 'PL';
-      document.querySelector('.lang-toggle').textContent = nextLang === 'PL' ? 'RU' : 'PL';
-      const langKey = nextLang.toLowerCase();
-      document.querySelectorAll('[data-ru]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + langKey);
-      });
-    }
-
-    function filterArticles(category) {
-      const articles = document.querySelectorAll('#article-list li');
-      articles.forEach(article => {
-        article.style.display = (category === 'all' || article.dataset.category === category) ? 'block' : 'none';
-      });
-
-      document.querySelectorAll('#filter-nav a').forEach(el => el.classList.remove('active'));
-      document.querySelector(`#filter-nav a[onclick="filterArticles('${category}')"]`)?.classList.add('active');
-    }
-
-    filterArticles('all');
-  </script>
 </body>
 </html>
